@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INTECH Engineering — Solusi Industri & Lingkungan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep:  #0a3d62;
+      --blue-mid:   #1565a0;
+      --blue-light: #2196c4;
+      --blue-pale:  #e8f4fc;
+      --blue-frost: #f0f8ff;
+      --sky:        #bde0f5;
+      --white:      #ffffff;
+      --ink:        #0d2137;
+      --muted:      #5a7a99;
+      --border:     #d0e6f5;
+      --accent:     #e85d26;   /* flame / incinerator accent */
+      --accent-lt:  #fdeee6;
+      --font-d: 'Lora', serif;
+      --font-b: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: var(--font-b); font-weight: 400; line-height: 1.7; overflow-x: hidden; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--blue-frost); }
+    ::-webkit-scrollbar-thumb { background: var(--blue-light); border-radius: 10px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 6vw;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(10,61,98,.08); }
+
+    .logo {
+      display: flex; align-items: center; gap: .6rem;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px; height: 36px;
+      background: var(--blue-deep);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-d);
+      font-size: 1rem; font-weight: 700;
+      color: var(--white);
+      letter-spacing: -.02em;
+      flex-shrink: 0;
+    }
+    .logo-text { font-family: var(--font-b); font-size: 1.1rem; font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
+    .logo-text span { color: var(--blue-light); }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: .82rem; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      background: var(--blue-deep) !important; color: var(--white) !important;
+      padding: .5rem 1.3rem !important; border-radius: 100px !important;
+    }
+    .nav-cta:hover { background: var(--blue-mid) !important; }
+
+    .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 2px; }
+    .burger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: .3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--blue-deep);
+      display: flex; align-items: center;
+      padding: 8rem 6vw 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* diagonal background split */
+    #hero::before {
+      content: '';
+      position: absolute;
+      right: -5%;
+      top: 0; bottom: 0;
+      width: 52%;
+      background: var(--blue-mid);
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    /* dot grid */
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .hero-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      position: relative; z-index: 1;
+      width: 100%;
+    }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--sky); margin-bottom: 1.4rem;
+      animation: up .5s ease both;
+    }
+    .hero-tag::before { content: ''; display: block; width: 22px; height: 1.5px; background: var(--sky); }
+
+    h1 {
+      font-family: var(--font-d);
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      color: var(--white);
+      animation: up .6s .08s ease both;
+    }
+    h1 em { font-style: italic; color: var(--sky); }
+
+    .hero-sub {
+      margin-top: 1.4rem;
+      color: rgba(255,255,255,.6);
+      font-size: .97rem; font-weight: 300;
+      max-width: 440px;
+      animation: up .6s .16s ease both;
+    }
+
+    .hero-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2.2rem; animation: up .6s .24s ease both; }
+    .btn { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-b); font-size: .88rem; font-weight: 600; text-decoration: none; padding: .72rem 1.7rem; border-radius: 100px; transition: all .2s; }
+    .btn-white { background: var(--white); color: var(--blue-deep); }
+    .btn-white:hover { background: var(--blue-pale); }
+    .btn-outline-w { border: 1.5px solid rgba(255,255,255,.35); color: var(--white); }
+    .btn-outline-w:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* hero right — incinerator illustration */
+    .hero-visual {
+      display: flex; align-items: center; justify-content: center;
+      animation: up .7s .2s ease both;
+    }
+    .incinerator-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+    }
+    .incinerator-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 16px;
+      padding: 2.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .incinerator-card svg { width: 100%; }
+
+    /* flame animation */
+    @keyframes flame {
+      0%, 100% { transform: scaleY(1) scaleX(1); }
+      25% { transform: scaleY(1.08) scaleX(.95); }
+      50% { transform: scaleY(.94) scaleX(1.04); }
+      75% { transform: scaleY(1.05) scaleX(.97); }
+    }
+    .flame { transform-origin: bottom center; animation: flame 2s ease-in-out infinite; }
+
+    .hero-badge {
+      position: absolute; bottom: -1rem; left: -1rem;
+      background: var(--accent); color: #fff;
+      padding: .9rem 1.2rem; border-radius: 10px;
+      font-size: .78rem; font-weight: 700;
+      line-height: 1.3;
+    }
+    .hero-badge span { display: block; font-size: 1.4rem; font-family: var(--font-b); font-weight: 800; }
+
+    /* stats */
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 3.5rem;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      overflow: hidden;
+      animation: up .6s .32s ease both;
+    }
+    .hstat {
+      padding: 1.2rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+    }
+    .hstat:last-child { border: none; }
+    .hstat-v { font-family: var(--font-d); font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1; }
+    .hstat-v sup { font-size: .9rem; color: var(--sky); }
+    .hstat-l { font-size: .7rem; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 6vw; }
+    .stag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .73rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue-light); margin-bottom: .7rem;
+    }
+    .stag::before { content: ''; display: block; width: 18px; height: 2px; background: var(--blue-light); border-radius: 2px; }
+    h2 { font-family: var(--font-d); font-size: clamp(1.9rem, 3.8vw, 2.9rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.15; color: var(--ink); }
+    .slead { color: var(--muted); font-size: .97rem; font-weight: 300; max-width: 500px; margin-top: .8rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--blue-frost); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; align-items: center; }
+
+    .about-img {
+      position: relative;
+    }
+    .about-img-inner {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 3rem;
+      display: flex; align-items: center; justify-content: center;
+      aspect-ratio: 1;
+      overflow: hidden;
+    }
+    .about-img-inner::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(33,150,196,.08), transparent 60%);
+      border-radius: 14px;
+    }
+    .about-img-inner svg { width: 80%; position: relative; z-index: 1; }
+
+    .about-float {
+      position: absolute; top: -1rem; right: -1rem;
+      background: var(--blue-deep); color: var(--white);
+      padding: 1rem 1.4rem; border-radius: 10px;
+      text-align: center;
+    }
+    .about-float strong { display: block; font-family: var(--font-d); font-size: 1.8rem; font-weight: 700; line-height: 1; }
+    .about-float small { font-size: .68rem; font-weight: 400; opacity: .7; letter-spacing: .05em; text-transform: uppercase; }
+
+    .about-text p { color: var(--muted); font-weight: 300; margin-bottom: .9rem; }
+    .cklist { list-style: none; margin-top: 1.5rem; }
+    .cklist li { display: flex; align-items: flex-start; gap: .85rem; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .93rem; color: var(--ink); }
+    .cklist li:last-child { border: none; }
+    .ck { width: 22px; height: 22px; flex-shrink: 0; background: var(--blue-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--blue-mid); font-size: .62rem; margin-top: .12rem; font-weight: 700; }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+    .svc-hd { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 3rem; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .svc-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 2.2rem;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-light), var(--blue-mid));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .svc-card:hover { border-color: var(--sky); box-shadow: 0 8px 32px rgba(21,101,160,.1); transform: translateY(-3px); }
+    .svc-card:hover::before { transform: scaleX(1); }
+
+    /* highlight card — incinerator */
+    .svc-card.featured {
+      background: var(--blue-deep);
+      border-color: var(--blue-deep);
+      color: var(--white);
+    }
+    .svc-card.featured::before { background: linear-gradient(90deg, var(--accent), #f5a623); transform: scaleX(1); }
+    .svc-card.featured p { color: rgba(255,255,255,.6); }
+    .svc-card.featured .svc-n { color: rgba(255,255,255,.2); }
+    .svc-card.featured h3 { color: var(--white); }
+
+    .svc-n { font-size: .75rem; font-weight: 700; color: var(--border); margin-bottom: 1.2rem; letter-spacing: .04em; }
+    .svc-ico { font-size: 1.8rem; margin-bottom: .9rem; display: block; }
+    .svc-card h3 { font-family: var(--font-d); font-size: 1.15rem; font-weight: 700; margin-bottom: .45rem; color: var(--ink); }
+    .svc-card p { font-size: .87rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+    .featured-badge {
+      display: inline-flex; align-items: center; gap: .3rem;
+      background: var(--accent); color: #fff;
+      font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      padding: .25rem .7rem; border-radius: 100px;
+      margin-bottom: .8rem;
+    }
+
+    /* ── INCINERATOR DETAIL ── */
+    #incinerator { background: var(--blue-frost); }
+    .incinc-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; margin-top: 4rem; align-items: center; }
+
+    .incinc-specs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-top: 2rem;
+    }
+    .spec-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+    }
+    .spec-box strong { display: block; font-family: var(--font-d); font-size: 1.5rem; font-weight: 700; color: var(--blue-deep); line-height: 1; }
+    .spec-box span { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; font-weight: 500; }
+
+    .incinc-types { display: flex; flex-direction: column; gap: .8rem; margin-top: 1.5rem; }
+    .type-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      transition: border-color .2s;
+    }
+    .type-item:hover { border-color: var(--blue-light); }
+    .type-dot {
+      width: 10px; height: 10px; flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--blue-light);
+      margin-top: .45rem;
+    }
+    .type-item strong { font-size: .9rem; font-weight: 700; color: var(--ink); display: block; }
+    .type-item span { font-size: .83rem; color: var(--muted); font-weight: 300; }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--white); }
+    .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+    .proj-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .proj-card:hover { box-shadow: 0 12px 36px rgba(21,101,160,.12); transform: translateY(-4px); }
+    .proj-thumb {
+      height: 148px; background: var(--blue-frost);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.2rem; border-bottom: 1px solid var(--border); position: relative;
+    }
+    .proj-thumb::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(33,150,196,.12), transparent); }
+    .proj-body { padding: 1.4rem; }
+    .proj-cat { font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue-light); margin-bottom: .35rem; }
+    .proj-card h3 { font-family: var(--font-d); font-size: 1.02rem; font-weight: 700; margin-bottom: .25rem; color: var(--ink); }
+    .proj-card p { font-size: .82rem; color: var(--muted); font-weight: 300; }
+
+    /* ── WHY ── */
+    #why { background: var(--blue-deep); }
+    #why .stag { color: var(--sky); }
+    #why .stag::before { background: var(--sky); }
+    #why h2 { color: var(--white); }
+    #why .slead { color: rgba(255,255,255,.55); }
+
+    .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; overflow: hidden; margin-top: 3rem; }
+    .why-card {
+      background: rgba(255,255,255,.04);
+      padding: 2.2rem 1.8rem;
+      transition: background .2s;
+    }
+    .why-card:hover { background: rgba(255,255,255,.09); }
+    .why-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+    .why-card h3 { font-family: var(--font-d); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: .4rem; }
+    .why-card p { font-size: .84rem; color: rgba(255,255,255,.5); font-weight: 300; line-height: 1.6; }
+
+    /* certs */
+    .certs-strip {
+      display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 3rem; justify-content: center;
+    }
+    .cpill {
+      font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+      background: rgba(255,255,255,.08);
+      color: var(--sky);
+      padding: .35rem 1rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    /* ── CLIENTS ── */
+    #clients { background: var(--blue-frost); padding: 4rem 6vw; text-align: center; }
+    .cli-lbl { font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+    .cli-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem 4rem; }
+    .cli-name { font-family: var(--font-b); font-size: .9rem; font-weight: 800; letter-spacing: .06em; color: #c0d8ea; transition: color .2s; cursor: default; }
+    .cli-name:hover { color: var(--blue-mid); }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--white); }
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: 6rem; margin-top: 4rem; }
+    .cd-list { display: flex; flex-direction: column; gap: 1.3rem; }
+    .cd { display: flex; gap: 1rem; align-items: flex-start; }
+    .cd-ico {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--blue-pale);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; font-size: .9rem;
+    }
+    .cd strong { display: block; font-size: .72rem; font-weight: 600; color: var(--blue-light); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .12rem; }
+    .cd span { font-size: .9rem; color: var(--ink); line-height: 1.5; }
+    .soc-row { display: flex; gap: .5rem; margin-top: 1.5rem; }
+    .soc {
+      width: 38px; height: 38px; border: 1.5px solid var(--border); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .76rem; font-weight: 700; color: var(--muted); text-decoration: none;
+      transition: all .2s;
+    }
+    .soc:hover { border-color: var(--blue-light); color: var(--blue-mid); background: var(--blue-pale); }
+    .map-box {
+      background: var(--blue-frost); border: 1px solid var(--border); border-radius: 10px;
+      height: 175px; margin-top: 1.5rem;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: .4rem;
+      color: var(--muted); font-size: .83rem;
+    }
+    .map-box span { font-size: 1.8rem; opacity: .4; }
+
+    /* form */
+    .cf { display: flex; flex-direction: column; gap: 1rem; }
+    .r2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fg { display: flex; flex-direction: column; gap: .32rem; }
+    .fg label { font-size: .72rem; font-weight: 600; color: var(--muted); letter-spacing: .05em; text-transform: uppercase; }
+    .fg input, .fg select, .fg textarea {
+      background: var(--blue-frost);
+      border: 1.5px solid var(--border);
+      border-radius: 10px; color: var(--ink);
+      font-family: var(--font-b); font-size: .92rem; font-weight: 400;
+      padding: .78rem 1rem; outline: none;
+      transition: border-color .2s, box-shadow .2s; resize: none;
+    }
+    .fg input:focus, .fg select:focus, .fg textarea:focus {
+      border-color: var(--blue-light);
+      box-shadow: 0 0 0 3px rgba(33,150,196,.12);
+      background: var(--white);
+    }
+    .fg select option { background: var(--white); }
+    .f-btn {
+      align-self: flex-start; background: var(--blue-deep); color: var(--white);
+      border: none; border-radius: 100px; padding: .78rem 2.2rem;
+      font-family: var(--font-b); font-size: .9rem; font-weight: 700;
+      cursor: pointer; transition: background .2s, transform .15s; margin-top: .4rem;
+    }
+    .f-btn:hover { background: var(--blue-mid); transform: translateY(-2px); }
+    .f-ok { display: none; background: #e8f4ef; border: 1px solid #a8d8b8; color: #1a6b3c; padding: .85rem 1.2rem; border-radius: 10px; font-size: .86rem; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--blue-deep); color: rgba(255,255,255,.4); padding: 4rem 6vw 2.5rem; }
+    .ft-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .ft-brand .logo-text { color: var(--white); }
+    .ft-brand p { font-size: .86rem; font-weight: 300; margin-top: .8rem; max-width: 260px; line-height: 1.6; }
+    .fc h4 { font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 1rem; }
+    .fc ul { list-style: none; }
+    .fc li { margin-bottom: .45rem; }
+    .fc a { color: rgba(255,255,255,.4); text-decoration: none; font-size: .86rem; font-weight: 300; transition: color .2s; }
+    .fc a:hover { color: rgba(255,255,255,.9); }
+    .ft-bot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-top: 2rem; font-size: .78rem; }
+
+    /* ── ANIM ── */
+    @keyframes up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.vis { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1020px) {
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .burger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: fixed; top: 0; right: 0;
+        width: 230px; background: var(--white); border-left: 1px solid var(--border);
+        padding: 5rem 2rem 2rem; gap: 1.2rem; box-shadow: -8px 0 32px rgba(0,0,0,.07);
+        height: auto; max-height: calc(100vh - 1rem); overflow-y: auto;
+      }
+      .hero-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-visual { display: none; }
+      .about-grid, .incinc-grid, .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .proj-grid { grid-template-columns: 1fr 1fr; }
+      .ft-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .svc-grid, .proj-grid, .why-grid, .incinc-specs { grid-template-columns: 1fr; }
+      .ft-top { grid-template-columns: 1fr; }
+      .r2 { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-mark">IT</div>
+    <div class="logo-text">Intech<span>Eng</span></div>
+  </a>
+  <ul class="nav-links" id="nav">
+    <li><a href="#about">Tentang</a></li>
+    <li><a href="#services">Layanan</a></li>
+    <li><a href="#incinerator">Incinerator</a></li>
+    <li><a href="#projects">Proyek</a></li>
+    <li><a href="#contact" class="nav-cta">Hubungi Kami</a></li>
+  </ul>
+  <button class="burger" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-wrap">
+    <div>
+      <div class="hero-tag">Engineering & Environmental Solutions</div>
+      <h1>Inovasi<br>Teknik untuk<br><em>Masa Depan</em><br>Industri</h1>
+      <p class="hero-sub">Solusi rekayasa terpadu — dari fabrikasi industri hingga sistem insinerasi ramah lingkungan berstandar internasional.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn btn-white">Lihat Layanan →</a>
+        <a href="#contact" class="btn btn-outline-w">Konsultasi Gratis</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="hstat-v">18<sup>+</sup></div><div class="hstat-l">Tahun</div></div>
+        <div class="hstat"><div class="hstat-v">200<sup>+</sup></div><div class="hstat-l">Proyek</div></div>
+        <div class="hstat"><div class="hstat-v">ISO</div><div class="hstat-l">Certified</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="incinerator-wrap">
+        <div class="incinerator-card">
+          <!-- Incinerator SVG illustration -->
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- main chamber -->
+            <rect x="80" y="100" width="160" height="130" rx="4" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+            <!-- door -->
+            <rect x="110" y="130" width="60" height="70" rx="3" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+            <circle cx="165" cy="165" r="4" fill="rgba(255,255,255,.4)"/>
+            <!-- chimney -->
+            <rect x="175" y="40" width="30" height="62" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.35)" stroke-width="1.5"/>
+            <!-- smoke -->
+            <ellipse cx="190" cy="32" rx="8" ry="5" fill="rgba(255,255,255,.12)"/>
+            <ellipse cx="198" cy="22" rx="6" ry="4" fill="rgba(255,255,255,.08)"/>
+            <ellipse cx="188" cy="14" rx="5" ry="3" fill="rgba(255,255,255,.05)"/>
+            <!-- control panel -->
+            <rect x="210" y="130" width="22" height="60" rx="2" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            <circle cx="221" cy="145" r="3" fill="#2196c4"/>
+            <circle cx="221" cy="157" r="3" fill="#4CAF50"/>
+            <circle cx="221" cy="169" r="3" fill="rgba(255,255,255,.3)"/>
+            <rect x="214" y="178" width="14" height="4" rx="1" fill="rgba(255,255,255,.2)"/>
+            <!-- base legs -->
+            <rect x="95" y="230" width="14" height="20" rx="2" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            <rect x="136" y="230" width="14" height="20" rx="2" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            <rect x="178" y="230" width="14" height="20" rx="2" fill="rgba(255,255,255,.15)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            <!-- flame inside window -->
+            <g class="flame">
+              <ellipse cx="140" cy="190" rx="12" ry="16" fill="rgba(232,93,38,.7)"/>
+              <ellipse cx="140" cy="193" rx="7" ry="11" fill="rgba(245,162,35,.7)"/>
+              <ellipse cx="140" cy="196" rx="4" ry="7" fill="rgba(255,220,80,.8)"/>
+            </g>
+            <!-- air duct -->
+            <rect x="40" y="160" width="42" height="16" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+            <rect x="30" y="155" width="14" height="26" rx="3" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+            <!-- temp gauge -->
+            <rect x="240" y="105" width="30" height="12" rx="2" fill="rgba(33,150,196,.3)" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+            <rect x="242" y="107" width="18" height="8" rx="1" fill="rgba(232,93,38,.6)"/>
+            <text x="275" y="115" fill="rgba(255,255,255,.5)" font-size="8" font-family="monospace">850°C</text>
+          </svg>
+        </div>
+        <div class="hero-badge">
+          <span>850°C</span>
+          Suhu Insinerasi
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <div class="stag">Tentang Kami</div>
+    <h2>Rekayasa Terpercaya<br>sejak 2006</h2>
+  </div>
+  <div class="about-grid reveal">
+    <div class="about-img">
+      <div class="about-img-inner">
+        <svg viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- factory outline -->
+          <rect x="10" y="130" width="260" height="80" stroke="#1565a0" stroke-width="1.5" fill="rgba(33,150,196,.04)"/>
+          <rect x="25" y="90" width="55" height="40" stroke="#1565a0" stroke-width="1.5" fill="rgba(33,150,196,.04)"/>
+          <rect x="108" y="65" width="75" height="65" stroke="#1565a0" stroke-width="1.5" fill="rgba(33,150,196,.04)"/>
+          <rect x="208" y="100" width="48" height="30" stroke="#1565a0" stroke-width="1.5" fill="rgba(33,150,196,.04)"/>
+          <rect x="38" y="48" width="12" height="42" stroke="#1565a0" stroke-width="1.5"/>
+          <rect x="60" y="58" width="10" height="32" stroke="#1565a0" stroke-width="1.5"/>
+          <rect x="135" y="25" width="12" height="40" stroke="#1565a0" stroke-width="1.5"/>
+          <rect x="122" y="82" width="16" height="18" stroke="#2196c4" stroke-width="1"/>
+          <rect x="150" y="82" width="16" height="18" stroke="#2196c4" stroke-width="1"/>
+          <rect x="32" y="142" width="18" height="22" stroke="#2196c4" stroke-width="1"/>
+          <rect x="74" y="142" width="18" height="22" stroke="#2196c4" stroke-width="1"/>
+          <rect x="148" y="142" width="18" height="22" stroke="#2196c4" stroke-width="1"/>
+          <rect x="188" y="142" width="18" height="22" stroke="#2196c4" stroke-width="1"/>
+          <circle cx="236" cy="115" r="10" stroke="#2196c4" stroke-width="1.2"/>
+          <circle cx="236" cy="115" r="4" stroke="#2196c4" stroke-width="1.2"/>
+          <line x1="236" y1="101" x2="236" y2="105" stroke="#2196c4" stroke-width="1.5"/>
+          <line x1="236" y1="125" x2="236" y2="129" stroke="#2196c4" stroke-width="1.5"/>
+          <line x1="222" y1="115" x2="226" y2="115" stroke="#2196c4" stroke-width="1.5"/>
+          <line x1="246" y1="115" x2="250" y2="115" stroke="#2196c4" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="about-float"><strong>ISO</strong><small>9001:2015<br>Certified</small></div>
+    </div>
+    <div>
+      <p>PT. IntechEng berdiri sejak 2006 sebagai perusahaan rekayasa terintegrasi yang fokus pada solusi industrial dan pengelolaan limbah. Kami menggabungkan keahlian teknik dengan teknologi terkini untuk menghasilkan produk dan sistem berkualitas tinggi.</p>
+      <p>Dengan tim insinyur berpengalaman dan fasilitas workshop seluas 8.000 m², kami siap menangani proyek dari skala kecil hingga industri besar, termasuk pengembangan dan produksi sistem insinerator berstandar internasional.</p>
+      <ul class="cklist">
+        <li><span class="ck">✓</span> Fabrikasi & Machining Presisi Tinggi</li>
+        <li><span class="ck">✓</span> Desain & Manufaktur Sistem Incinerator</li>
+        <li><span class="ck">✓</span> Engineering Design (CAD/CAE)</li>
+        <li><span class="ck">✓</span> Instalasi & Commissioning</li>
+        <li><span class="ck">✓</span> After-Sales & Maintenance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="svc-hd reveal">
+    <div><div class="stag">Layanan Kami</div><h2>Solusi Engineering<br>Lengkap</h2></div>
+    <p class="slead">Dari rekayasa umum hingga teknologi pengelolaan limbah khusus, kami hadir sebagai mitra teknis Anda.</p>
+  </div>
+  <div class="svc-grid reveal">
+    <div class="svc-card featured">
+      <div class="featured-badge">🔥 Produk Unggulan</div>
+      <span class="svc-ico">♨️</span>
+      <div class="svc-n">01</div>
+      <h3>Incinerator System</h3>
+      <p>Perancangan, manufaktur, dan instalasi sistem insinerasi untuk limbah medis, B3, industri, dan municipal. Berstandar emisi KemenLHK & WHO.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">02</div>
+      <span class="svc-ico">⚙️</span>
+      <h3>CNC Machining</h3>
+      <p>Pemesinan presisi dengan toleransi ±0.001mm menggunakan mesin CNC 3–5 axis untuk logam dan material khusus.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">03</div>
+      <span class="svc-ico">🔧</span>
+      <h3>Fabrikasi Baja</h3>
+      <p>Pemotongan, pembentukan, dan pengelasan struktur baja untuk konstruksi industri dan instalasi pabrik.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">04</div>
+      <span class="svc-ico">📐</span>
+      <h3>Engineering Design</h3>
+      <p>Desain teknik berbasis CAD/SolidWorks/AutoCAD dari konsep hingga drawing produksi siap manufaktur.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">05</div>
+      <span class="svc-ico">🛡️</span>
+      <h3>Quality Control & NDT</h3>
+      <p>Inspeksi dan pengujian non-destruktif, sertifikasi produk sesuai standar SNI, ASME, dan ISO internasional.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-n">06</div>
+      <span class="svc-ico">🔄</span>
+      <h3>Maintenance (MRO)</h3>
+      <p>Pemeliharaan preventif, overhauling mesin industri dan incinerator, serta penyediaan spare part bergaransi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INCINERATOR DETAIL -->
+<section id="incinerator">
+  <div class="reveal">
+    <div class="stag">Produk Unggulan</div>
+    <h2>Sistem Incinerator<br>Berstandar Internasional</h2>
+    <p class="slead">Kami merancang dan memproduksi berbagai tipe incinerator sesuai kebutuhan klien dengan standar emisi yang ketat.</p>
+  </div>
+  <div class="incinc-grid reveal">
+    <div>
+      <div class="incinc-specs">
+        <div class="spec-box"><strong>850°C</strong><span>Suhu Primer</span></div>
+        <div class="spec-box"><strong>1100°C</strong><span>Suhu Sekunder</span></div>
+        <div class="spec-box"><strong>50kg</strong><span>s/d 2.000kg/Jam</span></div>
+        <div class="spec-box"><strong>>99.9%</strong><span>Efisiensi Pembakaran</span></div>
+      </div>
+      <p style="margin-top:1.5rem; color:var(--muted); font-size:.93rem; font-weight:300;">Setiap unit incinerator kami dilengkapi sistem pollution control (scrubber, bag filter, afterburner) untuk memastikan emisi gas buang memenuhi standar KemenLHK PP No. 22 Tahun 2021 dan standar WHO.</p>
+    </div>
+    <div>
+      <h3 style="font-family:var(--font-d);font-size:1.2rem;margin-bottom:1rem;color:var(--ink)">Tipe Incinerator Tersedia</h3>
+      <div class="incinc-types">
+        <div class="type-item">
+          <div class="type-dot"></div>
+          <div><strong>Incinerator Limbah Medis (RS & Klinik)</strong><span>Kapasitas 10–500 kg/jam, dilengkapi pollution control unit</span></div>
+        </div>
+        <div class="type-item">
+          <div class="type-dot"></div>
+          <div><strong>Incinerator Limbah B3 Industri</strong><span>Untuk limbah kimia, oli, sludge, dan material berbahaya lainnya</span></div>
+        </div>
+        <div class="type-item">
+          <div class="type-dot" style="background:var(--accent)"></div>
+          <div><strong>Incinerator Limbah Padat Municipal</strong><span>Kapasitas besar 500–2.000 kg/jam untuk pemerintah daerah</span></div>
+        </div>
+        <div class="type-item">
+          <div class="type-dot"></div>
+          <div><strong>Incinerator Portable & Mobile</strong><span>Unit bergerak untuk lokasi terpencil, pertambangan, dan offshore</span></div>
+        </div>
+        <div class="type-item">
+          <div class="type-dot"></div>
+          <div><strong>Incinerator Hewan Ternak</strong><span>Untuk peternakan, RPH, dan penanganan wabah penyakit hewan</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="reveal"><div class="stag">Portofolio</div><h2>Proyek Terpilih</h2><p class="slead">Jejak kerja kami di berbagai sektor industri dan pemerintahan.</p></div>
+  <div class="proj-grid reveal">
+    <div class="proj-card"><div class="proj-thumb">♨️</div><div class="proj-body"><div class="proj-cat">Limbah Medis</div><h3>Incinerator RS Pusat Jakarta</h3><p>Supply & instalasi unit incinerator 200 kg/jam lengkap dengan scrubber untuk rumah sakit pemerintah.</p></div></div>
+    <div class="proj-card"><div class="proj-thumb">🏭</div><div class="proj-body"><div class="proj-cat">Industri B3</div><h3>Sistem Pembakaran Limbah Kimia</h3><p>Incinerator rotary kiln 1.000 kg/jam untuk pabrik petrokimia Cilegon.</p></div></div>
+    <div class="proj-card"><div class="proj-thumb">🏗️</div><div class="proj-body"><div class="proj-cat">Fabrikasi</div><h3>Struktur Baja Pabrik CPO</h3><p>Fabrikasi 800 ton struktur baja untuk pabrik kelapa sawit Kalimantan.</p></div></div>
+    <div class="proj-card"><div class="proj-thumb">⚙️</div><div class="proj-body"><div class="proj-cat">Machining</div><h3>Komponen Pressure Vessel</h3><p>CNC machining komponen pressure vessel untuk kilang minyak Pertamina RU V.</p></div></div>
+    <div class="proj-card"><div class="proj-thumb">🌿</div><div class="proj-body"><div class="proj-cat">Pemerintah Daerah</div><h3>Incinerator Sampah Kota</h3><p>Unit insinerator 2.000 kg/jam untuk UPTD Pengelolaan Sampah Kota Balikpapan.</p></div></div>
+    <div class="proj-card"><div class="proj-thumb">⛵</div><div class="proj-body"><div class="proj-cat">Marine & Offshore</div><h3>Incinerator Kapal Laut</h3><p>Marine incinerator berstandar MARPOL untuk armada kapal cargo PT Pelni.</p></div></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto;">
+    <div class="stag" style="justify-content:center;">Mengapa Kami</div>
+    <h2>Keunggulan IntechEng</h2>
+    <p class="slead" style="margin:0 auto;">Standar internasional, pengalaman luas, dan layanan purna jual yang berkomitmen.</p>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card"><span class="why-icon">🏭</span><h3>Produksi In-House</h3><p>Workshop 8.000 m² dengan 60+ mesin. Dari bahan baku ke produk jadi tanpa subkon, menjamin kualitas dan harga.</p></div>
+    <div class="why-card"><span class="why-icon">📋</span><h3>Legalitas Lengkap</h3><p>Izin produksi incinerator dari KemenLHK, SNI, dan sertifikasi ISO 9001:2015 yang selalu aktif dan terbarui.</p></div>
+    <div class="why-card"><span class="why-icon">🔬</span><h3>R&D Berkelanjutan</h3><p>Tim R&D terus mengembangkan teknologi emisi rendah dan sistem kontrol otomatis untuk efisiensi maksimal.</p></div>
+    <div class="why-card"><span class="why-icon">🤝</span><h3>After-Sales 24/7</h3><p>Layanan purna jual, spare part garansi, training operator, dan pemeliharaan berkala di seluruh Indonesia.</p></div>
+  </div>
+  <div class="certs-strip reveal">
+    <span class="cpill">ISO 9001:2015</span>
+    <span class="cpill">Izin KemenLHK</span>
+    <span class="cpill">SNI Compliant</span>
+    <span class="cpill">ASME Certified</span>
+    <span class="cpill">PP No.22/2021</span>
+    <span class="cpill">MARPOL Standard</span>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients">
+  <div class="cli-lbl">Dipercaya oleh institusi dan perusahaan terkemuka</div>
+  <div class="cli-row">
+    <div class="cli-name">KEMENKES RI</div>
+    <div class="cli-name">PERTAMINA</div>
+    <div class="cli-name">RUMAH SAKIT CIPTO</div>
+    <div class="cli-name">PLN</div>
+    <div class="cli-name">PELNI</div>
+    <div class="cli-name">PEMKOT BALIKPAPAN</div>
+    <div class="cli-name">VALE INDONESIA</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal"><div class="stag">Hubungi Kami</div><h2>Konsultasi &<br>Request Quotation</h2></div>
+  <div class="contact-wrap reveal">
+    <div>
+      <div class="cd-list">
+        <div class="cd"><div class="cd-ico">📍</div><div><strong>Kantor & Workshop</strong><span>Jl. Raya Industri Blok A No. 12<br>Kawasan Industri KIIC, Karawang 41361<br>Jawa Barat, Indonesia</span></div></div>
+        <div class="cd"><div class="cd-ico">📞</div><div><strong>Telepon Kantor</strong><span>+62 267 8641 200</span></div></div>
+        <div class="cd"><div class="cd-ico">📱</div><div><strong>WhatsApp / Sales</strong><span>+62 812 9876 5432</span></div></div>
+        <div class="cd"><div class="cd-ico">✉️</div><div><strong>Email</strong><span>info@intecheng.co.id<br>sales@intecheng.co.id</span></div></div>
+        <div class="cd"><div class="cd-ico">🕐</div><div><strong>Jam Kerja</strong><span>Senin – Jumat: 08.00 – 17.00 WIB<br>Sabtu: 08.00 – 13.00 WIB</span></div></div>
+      </div>
+      <div class="soc-row">
+        <a href="#" class="soc">in</a>
+        <a href="#" class="soc">ig</a>
+        <a href="#" class="soc">yt</a>
+        <a href="#" class="soc">wa</a>
+      </div>
+      <div class="map-box"><span>🗺️</span><p>Kawasan Industri KIIC, Karawang</p></div>
+    </div>
+    <form class="cf" onsubmit="send(event)">
+      <div class="r2">
+        <div class="fg"><label>Nama Lengkap *</label><input type="text" placeholder="Nama Anda" required /></div>
+        <div class="fg"><label>Instansi / Perusahaan</label><input type="text" placeholder="Nama Instansi / Perusahaan" /></div>
+      </div>
+      <div class="r2">
+        <div class="fg"><label>Email *</label><input type="email" placeholder="email@perusahaan.co.id" required /></div>
+        <div class="fg"><label>No. Telepon / WA</label><input type="tel" placeholder="+62 812 xxxx xxxx" /></div>
+      </div>
+      <div class="fg">
+        <label>Jenis Layanan / Produk</label>
+        <select>
+          <option value="">— Pilih Layanan —</option>
+          <option>Incinerator Limbah Medis</option>
+          <option>Incinerator Limbah B3 Industri</option>
+          <option>Incinerator Limbah Padat Municipal</option>
+          <option>Incinerator Portable / Mobile</option>
+          <option>Incinerator Kapal (Marine)</option>
+          <option>CNC Machining & Fabrikasi</option>
+          <option>Engineering Design</option>
+          <option>Maintenance & Spare Part</option>
+          <option>Lainnya</option>
+        </select>
+      </div>
+      <div class="fg"><label>Deskripsi Kebutuhan *</label><textarea rows="5" placeholder="Jelaskan kebutuhan Anda: jenis limbah, estimasi volume/hari, lokasi, anggaran, atau spesifikasi khusus lainnya..." required></textarea></div>
+      <button type="submit" class="f-btn">Kirim Pesan →</button>
+      <div class="f-ok" id="ok">✅ Pesan terkirim! Tim sales kami akan menghubungi Anda dalam 1×24 jam kerja.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <a href="#" class="logo"><div class="logo-mark">IT</div><div class="logo-text">Intech<span style="color:var(--sky)">Eng</span></div></a>
+      <p>Solusi rekayasa industri dan pengelolaan limbah terintegrasi. Incinerator berstandar internasional made in Indonesia.</p>
+    </div>
+    <div class="fc">
+      <h4>Produk & Layanan</h4>
+      <ul>
+        <li><a href="#incinerator">Incinerator Medis</a></li>
+        <li><a href="#incinerator">Incinerator B3</a></li>
+        <li><a href="#incinerator">Incinerator Municipal</a></li>
+        <li><a href="#services">Fabrikasi & Machining</a></li>
+        <li><a href="#services">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Perusahaan</h4>
+      <ul>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#projects">Portofolio</a></li>
+        <li><a href="#why">Sertifikasi</a></li>
+        <li><a href="#contact">Karir</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h4>Kontak</h4>
+      <ul>
+        <li><a href="tel:+62267864120">+62 267 8641 200</a></li>
+        <li><a href="mailto:info@intecheng.co.id">info@intecheng.co.id</a></li>
+        <li><a href="#contact">Request Quotation</a></li>
+        <li><a href="#contact">Jadwal Survei</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2024 PT. IntechEng Indonesia. Hak cipta dilindungi undang-undang.</span>
+    <span style="opacity:.25;">ISO 9001:2015 · Izin KemenLHK · SNI Compliant</span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+
+  // Nav scroll shadow
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Close mobile nav
+  document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => document.getElementById('nav').classList.remove('open')));
+
+  // Form
+  function send(e) {
+    e.preventDefault();
+    document.getElementById('ok').style.display = 'block';
+    e.target.querySelector('.f-btn').disabled = true;
+    e.target.querySelector('.f-btn').textContent = 'Terkirim ✓';
+    e.target.querySelector('.f-btn').style.background = '#1a8c4a';
+  }
+</script>
+</body>
+</html>
