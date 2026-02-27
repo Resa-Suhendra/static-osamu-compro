@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak CME Engineering</title>
+  <meta name="description" content="Informasi kontak CME Engineering dan formulir untuk permintaan penawaran, konsultasi proyek, dan pertanyaan umum." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">CME</div>
+    <div class="logo-text">CME<span>Engineering</span></div>
+  </a>
+  <ul class="nav-links" id="nav">
+    <li><a href="tentang.html">Profil</a></li>
+    <li><a href="produk.html">Produk & Layanan</a></li>
+    <li><a href="portofolio.html">Portofolio</a></li>
+    <li><a href="kontak.html" class="nav-cta">Hubungi Kami</a></li>
+  </ul>
+  <button class="burger" type="button" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <section class="hero" style="min-height:40vh;">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Hubungi Kami</div>
+        <h1>Konsultasi & Permintaan Penawaran</h1>
+        <p class="hero-sub">
+          Sampaikan kebutuhan Anda: jenis proyek, lokasi, kapasitas, dan target waktu. Tim CME akan
+          membantu menyiapkan rekomendasi awal dan langkah berikutnya.
+        </p>
+      </div>
+      <div>
+        <div class="hero-card">
+          <div class="img-placeholder">
+            Placeholder untuk cuplikan peta lokasi / foto fasad kantor CME
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="page">
+      <div class="contact-wrap">
+        <div>
+          <div class="stag">Informasi Kontak</div>
+          <h2>Detail Perusahaan</h2>
+          <p class="slead">
+            Silakan sesuaikan alamat, nomor telepon, email, dan jam operasional berikut dengan data
+            resmi CME yang tercantum di dokumen company profile.
+          </p>
+          <div class="contact-list" style="margin-top:2rem;">
+            <div class="contact-item">
+              <div class="contact-ico">📍</div>
+              <div>
+                <div class="contact-label">Alamat Kantor / Workshop</div>
+                <div class="contact-text">
+                  [Isi alamat lengkap CME di sini]<br />
+                  [Kota] [Kode Pos]<br />
+                  [Provinsi], Indonesia
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">📞</div>
+              <div>
+                <div class="contact-label">Telepon Kantor</div>
+                <div class="contact-text">[Isi nomor telepon kantor]</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">✉️</div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-text">
+                  <span>[email utama perusahaan]</span><br />
+                  <span>[email sales / teknis jika ada]</span>
+                </div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">🕒</div>
+              <div>
+                <div class="contact-label">Jam Operasional</div>
+                <div class="contact-text">
+                  Senin – Jumat: 08.00 – 17.00 WIB<br />
+                  Sabtu: 08.00 – 13.00 WIB (opsional, sesuaikan)
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="map-box">
+            Placeholder untuk embed peta (Google Maps) lokasi CME
+          </div>
+        </div>
+
+        <div>
+          <div class="stag">Formulir Kontak</div>
+          <h2>Kirimkan Ringkasan Kebutuhan</h2>
+          <form class="form" onsubmit="sendContact(event)">
+            <div class="form-row">
+              <div class="field">
+                <label>Nama Lengkap *</label>
+                <input type="text" name="nama" placeholder="Nama Anda" required />
+              </div>
+              <div class="field">
+                <label>Instansi / Perusahaan</label>
+                <input type="text" name="instansi" placeholder="Nama Instansi / Perusahaan" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label>Email *</label>
+                <input type="email" name="email" placeholder="email@perusahaan.co.id" required />
+              </div>
+              <div class="field">
+                <label>No. Telepon / WA</label>
+                <input type="tel" name="telepon" placeholder="+62 8xx xxxx xxxx" />
+              </div>
+            </div>
+            <div class="field">
+              <label>Jenis Layanan / Produk</label>
+              <select name="layanan">
+                <option value="">— Pilih —</option>
+                <option>Jasa Engineering</option>
+                <option>Fabrikasi & Machining</option>
+                <option>Solusi Pengelolaan Limbah</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Deskripsi Kebutuhan *</label>
+              <textarea name="pesan" rows="5" placeholder="Jelaskan secara singkat: jenis proyek, kapasitas, lokasi, target waktu, dan informasi penting lain." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Kirim Pesan →</button>
+            <div class="form-ok" id="ok">Pesan terkirim. Tim CME akan menghubungi Anda dalam 1×24 jam kerja.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="ft-top">
+    <div class="ft-brand">
+      <a href="index.html" class="logo">
+        <div class="logo-mark">CME</div>
+        <div class="logo-text">CME<span>Engineering</span></div>
+      </a>
+      <p>
+        Gunakan halaman ini sebagai pintu masuk utama komunikasi dengan calon klien dan mitra.
+        Data kontak dapat diperbarui sewaktu-waktu mengikuti informasi terbaru.
+      </p>
+    </div>
+    <div class="ft-col">
+      <h4>Perusahaan</h4>
+      <ul>
+        <li><a href="tentang.html">Profil CME</a></li>
+        <li><a href="portofolio.html">Portofolio</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Produk & Layanan</h4>
+      <ul>
+        <li><a href="produk.html">Jasa Engineering</a></li>
+        <li><a href="produk.html">Fabrikasi & Machining</a></li>
+        <li><a href="produk.html">Solusi Lingkungan</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Hubungi Kami</h4>
+      <ul>
+        <li><a href="kontak.html">Formulir Kontak</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 CME Engineering.</span>
+    <span style="opacity:.6;">Halaman kontak · Sesuaikan data dengan informasi resmi perusahaan</span>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) e.target.classList.add('vis');
+  }), { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  function sendContact(e) {
+    e.preventDefault();
+    const ok = document.getElementById('ok');
+    ok.style.display = 'block';
+    const btn = e.target.querySelector('.btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Terkirim ✓';
+    btn.style.background = '#1a8c4a';
+  }
+</script>
+
+</body>
+</html>
+
