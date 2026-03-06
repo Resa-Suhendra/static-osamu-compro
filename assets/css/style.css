@@ -46,8 +46,8 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(10,61,98,.08); }
 
 .logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
 .logo-mark {
-  width: 40px;
-  height: 40px;
+  width: 120px;
+  height: 50px;
   border-radius: 8px;
   overflow: hidden;
   display: flex;
