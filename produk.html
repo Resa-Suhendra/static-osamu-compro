@@ -1,402 +1,431 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Produk & Layanan OSAMU Incinerator</title>
-  <meta name="description" content="Rangkuman produk dan layanan CME Engineering: sistem pengelolaan limbah, fabrikasi & machining, serta jasa engineering untuk industri dan institusi." />
+  <meta name="description"
+    content="Rangkuman produk dan layanan CME Engineering: sistem pengelolaan limbah, fabrikasi & machining, serta jasa engineering untuk industri dan institusi." />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
 
-<nav id="navbar">
-  <a href="index.html" class="logo">
-    <div class="logo-mark">
-      <img src="assets/img/logo-product.png" alt="OSAMU Incinerator" />
-    </div>
-    <div class="logo-text">Olah<span>SampahMu</span></div>
-  </a>
-  <ul class="nav-links" id="nav">
-    <li><a href="tentang.html">Profil</a></li>
-    <li><a href="produk.html">Produk & Layanan</a></li>
-    <li><a href="portofolio.html">Portofolio</a></li>
-    <li><a href="kontak.html" class="nav-cta">Hubungi Kami</a></li>
-  </ul>
-  <button class="burger" type="button" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+  <nav id="navbar">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <img src="assets/img/logo-product.png" alt="OSAMU Incinerator" />
+      </div>
+    </a>
+    <ul class="nav-links" id="nav">
+      <li><a href="tentang.html">Profil</a></li>
+      <li><a href="produk.html">Produk & Layanan</a></li>
+      <li><a href="portofolio.html">Portofolio</a></li>
+      <li><a href="kontak.html" class="nav-cta">Hubungi Kami</a></li>
+    </ul>
+    <button class="burger" type="button" onclick="document.getElementById('nav').classList.toggle('open')"
+      aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-<main>
-  <section class="hero osamu-hero" style="min-height:40vh;">
-    <div class="hero-grid">
-      <div>
-        <div class="hero-tag">Produk &amp; Layanan · OSAMU</div>
-        <h1>OSAMU — <em>Olah Sampah Mu</em></h1>
-        <p class="hero-sub">
-          OSAMU adalah lini mesin incinerator limbah yang dirancang oleh CME Engineering untuk berbagai
-          kebutuhan kapasitas, mulai dari fasilitas kesehatan, kawasan komunal, hingga industri.
+  <main>
+    <section class="hero osamu-hero" style="min-height:40vh;">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-tag">Produk &amp; Layanan · OSAMU</div>
+          <h1>OSAMU — <em>Olah Sampah Mu</em></h1>
+          <p class="hero-sub">
+            OSAMU adalah lini mesin incinerator limbah yang dirancang oleh CME Engineering untuk berbagai
+            kebutuhan kapasitas, mulai dari fasilitas kesehatan, kawasan komunal, hingga industri.
+          </p>
+          <div class="osamu-brand">
+            <div class="osamu-brand-item">
+              <img src="assets/img/breadcrumb.png" alt="Logo CME Engineering" />
+              <div class="osamu-brand-text">
+                <span class="osamu-label">Diproduksi oleh</span>
+                <strong>CME Engineering</strong>
+              </div>
+            </div>
+            <div class="osamu-brand-divider"></div>
+            <div class="osamu-brand-item">
+              <img src="assets/img/logo-product.png" alt="Logo OSAMU – Olah Sampah Mu" />
+              <div class="osamu-brand-text">
+                <span class="osamu-label">Merek produk</span>
+                <strong>OSAMU Incinerator Series</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="hero-card">
+            <div class="img-placeholder osamu-img">
+              Placeholder visual mesin incinerator OSAMU<br />
+              (foto unit aktual dapat dimasukkan kemudian)
+            </div>
+            <div class="hero-badge">
+              <span>OSAMU</span>
+              Lini mesin incinerator multi-kapasitas untuk limbah padat &amp; medis
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="stag">Produk Unggulan</div>
+        <h2>OSAMU Incinerator Series</h2>
+        <p class="slead">
+          OSAMU (<strong>Olah Sampah Mu</strong>) adalah rangkaian mesin incinerator dengan berbagai
+          konfigurasi kapasitas dan jenis limbah, sehingga dapat disesuaikan untuk klinik, rumah sakit,
+          kawasan komunal, maupun fasilitas industri.
         </p>
-        <div class="osamu-brand">
-          <div class="osamu-brand-item">
+        <div class="split osamu-split">
+          <div>
+            <div class="osamu-tabs" role="tablist" aria-label="Varian OSAMU Incinerator">
+              <button class="osamu-tab is-active" type="button" data-target="osamu-klinik">
+                <span class="osamu-tab-title">OSAMU Klinik</span>
+                <span class="osamu-tab-desc">Untuk klinik, rumah sakit kecil, dan fasilitas kesehatan.</span>
+              </button>
+              <button class="osamu-tab" type="button" data-target="osamu-industri">
+                <span class="osamu-tab-title">OSAMU Industri</span>
+                <span class="osamu-tab-desc">Untuk limbah padat proses dan utilitas di lingkungan industri.</span>
+              </button>
+              <button class="osamu-tab" type="button" data-target="osamu-komunal">
+                <span class="osamu-tab-title">OSAMU Komunal</span>
+                <span class="osamu-tab-desc">Untuk pengelolaan sampah di kawasan permukiman atau institusi.</span>
+              </button>
+              <button class="osamu-tab" type="button" data-target="osamu-mobile">
+                <span class="osamu-tab-title">OSAMU Mobile</span>
+                <span class="osamu-tab-desc">Unit bergerak untuk kebutuhan darurat atau lokasi berpindah.</span>
+              </button>
+            </div>
+          </div>
+          <div>
+            <div class="osamu-panels">
+              <article class="osamu-panel is-active" id="osamu-klinik" role="tabpanel">
+                <div class="img-placeholder osamu-img">
+                  Placeholder foto mesin OSAMU Klinik<br />
+                  (gambar unit aktual dapat ditambahkan)
+                </div>
+                <div class="osamu-panel-body">
+                  <h3>OSAMU Klinik</h3>
+                  <p>
+                    Dirancang khusus untuk fasilitas kesehatan dengan volume limbah menengah, mendukung
+                    pengelolaan limbah medis infeksius secara aman dan terkendali.
+                  </p>
+                  <ul class="osamu-spec-list">
+                    <li><span>Kapasitas pembakaran</span><strong>30–60 kg/jam</strong></li>
+                    <li><span>Jenis limbah</span><strong>Limbah medis padat &amp; domestik terpilah</strong></li>
+                    <li><span>Sistem ruang bakar</span><strong>Primary &amp; secondary chamber dengan kontrol
+                        suhu</strong></li>
+                    <li><span>Emisi</span><strong>Dirancang mengacu pada regulasi limbah medis yang berlaku</strong>
+                    </li>
+                    <li><span>Opsi panel kontrol</span><strong>Kontrol otomatis dengan monitoring suhu multi
+                        titik</strong></li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="osamu-panel" id="osamu-industri" role="tabpanel">
+                <div class="img-placeholder osamu-img">
+                  Placeholder foto mesin OSAMU Industri<br />
+                  (gambar unit aktual dapat ditambahkan)
+                </div>
+                <div class="osamu-panel-body">
+                  <h3>OSAMU Industri</h3>
+                  <p>
+                    Cocok untuk menunjang pengelolaan limbah padat di area produksi, utilitas, maupun
+                    fasilitas penunjang di lingkungan industri.
+                  </p>
+                  <ul class="osamu-spec-list">
+                    <li><span>Kapasitas pembakaran</span><strong>100–300 kg/jam</strong></li>
+                    <li><span>Jenis limbah</span><strong>Limbah padat non-B3 terpilah &amp; kemasan
+                        terkontaminasi</strong></li>
+                    <li><span>Desain ruang bakar</span><strong>Refractory tahan temperatur tinggi dengan burner
+                        industri</strong></li>
+                    <li><span>Sistem gas buang</span><strong>Dilengkapi ducting &amp; stack sesuai layout
+                        pabrik</strong></li>
+                    <li><span>Integrasi sistem</span><strong>Dapat dikombinasikan dengan sistem pengolahan limbah
+                        existing</strong></li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="osamu-panel" id="osamu-komunal" role="tabpanel">
+                <div class="img-placeholder osamu-img">
+                  Placeholder foto mesin OSAMU Komunal<br />
+                  (gambar unit aktual dapat ditambahkan)
+                </div>
+                <div class="osamu-panel-body">
+                  <h3>OSAMU Komunal</h3>
+                  <p>
+                    Ditujukan untuk kawasan pemukiman, institusi pendidikan, atau fasilitas publik yang
+                    membutuhkan solusi pemusnahan sampah terpusat.
+                  </p>
+                  <ul class="osamu-spec-list">
+                    <li><span>Kapasitas pembakaran</span><strong>80–150 kg/jam</strong></li>
+                    <li><span>Jenis limbah</span><strong>Sampah domestik terpilah (organik &amp; anorganik
+                        tertentu)</strong></li>
+                    <li><span>Sistem feeding</span><strong>Pintu loading ergonomis dengan mekanisme penguncian
+                        aman</strong></li>
+                    <li><span>Fitur keselamatan</span><strong>Interlock operasional &amp; panduan prosedur
+                        standar</strong></li>
+                    <li><span>Penempatan</span><strong>Opsional rumah incinerator lengkap dengan cerobong</strong></li>
+                  </ul>
+                </div>
+              </article>
+
+              <article class="osamu-panel" id="osamu-mobile" role="tabpanel">
+                <div class="img-placeholder osamu-img">
+                  Placeholder foto mesin OSAMU Mobile<br />
+                  (gambar unit aktual dapat ditambahkan)
+                </div>
+                <div class="osamu-panel-body">
+                  <h3>OSAMU Mobile</h3>
+                  <p>
+                    Varian incinerator yang dapat ditempatkan pada trailer atau kendaraan khusus untuk
+                    melayani kebutuhan di lokasi-lokasi berbeda.
+                  </p>
+                  <ul class="osamu-spec-list">
+                    <li><span>Kapasitas pembakaran</span><strong>40–80 kg/jam</strong></li>
+                    <li><span>Konfigurasi</span><strong>Dipadukan dengan sistem penanganan abu &amp; bahan bakar
+                        onboard</strong></li>
+                    <li><span>Kebutuhan listrik</span><strong>Dapat disesuaikan dengan genset atau suplai
+                        setempat</strong></li>
+                    <li><span>Aplikasi</span><strong>Respon bencana, proyek sementara, atau area terpencil</strong></li>
+                    <li><span>Dokumentasi</span><strong>Dilengkapi panduan operasi &amp; checklist inspeksi
+                        berkala</strong></li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="stag">Layanan Rekayasa</div>
+        <h2>Jasa Engineering & Konsultasi</h2>
+        <p class="slead">
+          Tim engineering CME membantu menerjemahkan kebutuhan operasional menjadi rancangan teknis
+          yang jelas, terukur, dan siap dieksekusi, termasuk pengembangan sistem incinerator OSAMU
+          yang sesuai kapasitas dan regulasi.
+        </p>
+        <div class="cards-3">
+          <article class="card">
+            <div class="card-meta">E-01</div>
+            <h3>Studi Kelayakan & Penjajakan Teknis</h3>
+            <p>
+              Analisis awal kebutuhan dan kondisi eksisting untuk menentukan solusi yang paling
+              relevan, termasuk kajian kapasitas, tata letak, dan estimasi investasi.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-meta">E-02</div>
+            <h3>Basic & Detail Engineering</h3>
+            <p>
+              Penyusunan P&ID, layout, perhitungan kapasitas, serta gambar detail produksi
+              untuk memastikan kelancaran tahap manufaktur dan konstruksi.
+            </p>
+          </article>
+          <article class="card">
+            <div class="card-meta">E-03</div>
+            <h3>Supervisi Instalasi & Commissioning</h3>
+            <p>
+              Pendampingan teknis selama pemasangan di lapangan serta uji coba operasional
+              hingga sistem siap diserahterimakan.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--blue-frost);">
+      <div class="page">
+        <div class="stag">Manufaktur</div>
+        <h2>Fabrikasi & Machining</h2>
+        <p class="slead">
+          CME melaksanakan proses fabrikasi dengan pengendalian mutu ketat untuk memastikan setiap
+          peralatan memenuhi spesifikasi desain dan standar yang ditetapkan, termasuk unit-unit
+          OSAMU Incinerator dari tahap cutting hingga finishing.
+        </p>
+        <div class="split">
+          <div>
+            <ul class="list-check">
+              <li><span>✓</span>
+                <div>Fabrikasi struktur baja, rangka, dan platform untuk fasilitas industri.</div>
+              </li>
+              <li><span>✓</span>
+                <div>Pembuatan vessel, tanki, ducting, dan peralatan proses lain sesuai gambar teknik.</div>
+              </li>
+              <li><span>✓</span>
+                <div>Machining komponen presisi untuk mendukung peralatan mekanik dan rotating equipment.</div>
+              </li>
+              <li><span>✓</span>
+                <div>Penerapan prosedur pengelasan dan inspeksi (visual, NDT) sesuai permintaan klien.</div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <div class="img-placeholder">
+              Placeholder untuk foto workshop / lini fabrikasi CME<br />
+              (bisa diganti dengan foto actual workshop di kemudian hari)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="page">
+        <div class="stag">Solusi Lingkungan</div>
+        <h2>Sistem Pengelolaan & Pemrosesan Limbah</h2>
+        <p class="slead">
+          CME merancang sistem pengelolaan limbah yang disesuaikan dengan karakteristik limbah,
+          kapasitas, serta regulasi yang berlaku di lokasi operasi klien, di mana OSAMU Incinerator
+          menjadi salah satu contoh solusi pemusnahan limbah padat.
+        </p>
+        <table class="table-spec">
+          <thead>
+            <tr>
+              <th>Jenis Solusi</th>
+              <th>Contoh Aplikasi</th>
+              <th>Catatan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sistem pengolahan limbah padat</td>
+              <td>Industri manufaktur, fasilitas publik, institusi kesehatan</td>
+              <td>Dirancang berdasarkan komposisi limbah dan target reduksi volume</td>
+            </tr>
+            <tr>
+              <td>Sistem pengolahan limbah cair</td>
+              <td>Proses produksi, utilitas, area pencucian / cleaning</td>
+              <td>Dapat dikombinasikan dengan unit existing klien</td>
+            </tr>
+            <tr>
+              <td>Sistem pemantauan dan kontrol</td>
+              <td>Monitoring parameter proses & lingkungan</td>
+              <td>Integrasi dengan panel kontrol dan data logging</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:1.3rem;font-size:.9rem;color:var(--muted);">
+          Detail teknis spesifik (kapasitas, jenis limbah, komponen utama) dapat diambil langsung dari
+          dokumen spesifikasi produk CME dan dimasukkan ke dalam tabel atau section terpisah sesuai
+          kebutuhan.
+        </p>
+      </div>
+    </section>
+
+    <section style="background:var(--blue-deep);color:#fff;">
+      <div class="page">
+        <div class="stag" style="color:var(--sky);"><span></span>Pendekatan Proyek</div>
+        <h2 style="color:#fff;">Dari Diskusi Awal hingga After-Sales</h2>
+        <div class="split" style="margin-top:2.2rem;">
+          <div>
+            <ol style="margin-left:1.1rem;font-size:.9rem;line-height:1.7;">
+              <li><strong>Diskusi kebutuhan & pengumpulan data</strong> – memahami proses, target, serta batasan yang
+                ada.</li>
+              <li><strong>Usulan konsep & estimasi awal</strong> – CME menyusun alternatif solusi dan gambaran
+                investasi.</li>
+              <li><strong>Detail engineering & fabrikasi</strong> – desain difinalkan, diikuti produksi dan pengujian di
+                workshop.</li>
+              <li><strong>Instalasi & commissioning</strong> – pemasangan di lokasi, uji fungsi, dan pelatihan operator.
+              </li>
+              <li><strong>After-sales & perawatan</strong> – dukungan teknis, inspeksi berkala, dan ketersediaan suku
+                cadang.</li>
+            </ol>
+          </div>
+          <div>
+            <p class="slead" style="color:rgba(255,255,255,.8);max-width:none;">
+              Setiap proyek didokumentasikan melalui laporan teknis dan berita acara sehingga klien
+              memiliki rekam jejak yang jelas untuk kebutuhan audit internal maupun eksternal.
+            </p>
+            <div style="margin-top:1.6rem;">
+              <a href="kontak.html" class="btn btn-primary">Diskusikan kebutuhan proyek Anda</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">
             <img src="assets/img/breadcrumb.png" alt="Logo CME Engineering" />
-            <div class="osamu-brand-text">
-              <span class="osamu-label">Diproduksi oleh</span>
-              <strong>CME Engineering</strong>
-            </div>
           </div>
-          <div class="osamu-brand-divider"></div>
-          <div class="osamu-brand-item">
-            <img src="assets/img/logo-product.png" alt="Logo OSAMU – Olah Sampah Mu" />
-            <div class="osamu-brand-text">
-              <span class="osamu-label">Merek produk</span>
-              <strong>OSAMU Incinerator Series</strong>
-            </div>
-          </div>
-        </div>
+          <div class="logo-text">CME<span>Engineering</span></div>
+        </a>
+        <p>
+          CME menyediakan layanan rekayasa, fabrikasi, dan solusi lingkungan yang dapat disesuaikan
+          dengan karakteristik industri dan lokasi klien.
+        </p>
       </div>
-      <div>
-        <div class="hero-card">
-          <div class="img-placeholder osamu-img">
-            Placeholder visual mesin incinerator OSAMU<br />
-            (foto unit aktual dapat dimasukkan kemudian)
-          </div>
-          <div class="hero-badge">
-            <span>OSAMU</span>
-            Lini mesin incinerator multi-kapasitas untuk limbah padat &amp; medis
-          </div>
-        </div>
+      <div class="ft-col">
+        <h4>Perusahaan</h4>
+        <ul>
+          <li><a href="tentang.html">Profil CME</a></li>
+          <li><a href="portofolio.html">Portofolio</a></li>
+        </ul>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="page">
-      <div class="stag">Produk Unggulan</div>
-      <h2>OSAMU Incinerator Series</h2>
-      <p class="slead">
-        OSAMU (<strong>Olah Sampah Mu</strong>) adalah rangkaian mesin incinerator dengan berbagai
-        konfigurasi kapasitas dan jenis limbah, sehingga dapat disesuaikan untuk klinik, rumah sakit,
-        kawasan komunal, maupun fasilitas industri.
-      </p>
-      <div class="split osamu-split">
-        <div>
-          <div class="osamu-tabs" role="tablist" aria-label="Varian OSAMU Incinerator">
-            <button class="osamu-tab is-active" type="button" data-target="osamu-klinik">
-              <span class="osamu-tab-title">OSAMU Klinik</span>
-              <span class="osamu-tab-desc">Untuk klinik, rumah sakit kecil, dan fasilitas kesehatan.</span>
-            </button>
-            <button class="osamu-tab" type="button" data-target="osamu-industri">
-              <span class="osamu-tab-title">OSAMU Industri</span>
-              <span class="osamu-tab-desc">Untuk limbah padat proses dan utilitas di lingkungan industri.</span>
-            </button>
-            <button class="osamu-tab" type="button" data-target="osamu-komunal">
-              <span class="osamu-tab-title">OSAMU Komunal</span>
-              <span class="osamu-tab-desc">Untuk pengelolaan sampah di kawasan permukiman atau institusi.</span>
-            </button>
-            <button class="osamu-tab" type="button" data-target="osamu-mobile">
-              <span class="osamu-tab-title">OSAMU Mobile</span>
-              <span class="osamu-tab-desc">Unit bergerak untuk kebutuhan darurat atau lokasi berpindah.</span>
-            </button>
-          </div>
-        </div>
-        <div>
-          <div class="osamu-panels">
-            <article class="osamu-panel is-active" id="osamu-klinik" role="tabpanel">
-              <div class="img-placeholder osamu-img">
-                Placeholder foto mesin OSAMU Klinik<br />
-                (gambar unit aktual dapat ditambahkan)
-              </div>
-              <div class="osamu-panel-body">
-                <h3>OSAMU Klinik</h3>
-                <p>
-                  Dirancang khusus untuk fasilitas kesehatan dengan volume limbah menengah, mendukung
-                  pengelolaan limbah medis infeksius secara aman dan terkendali.
-                </p>
-                <ul class="osamu-spec-list">
-                  <li><span>Kapasitas pembakaran</span><strong>30–60 kg/jam</strong></li>
-                  <li><span>Jenis limbah</span><strong>Limbah medis padat &amp; domestik terpilah</strong></li>
-                  <li><span>Sistem ruang bakar</span><strong>Primary &amp; secondary chamber dengan kontrol suhu</strong></li>
-                  <li><span>Emisi</span><strong>Dirancang mengacu pada regulasi limbah medis yang berlaku</strong></li>
-                  <li><span>Opsi panel kontrol</span><strong>Kontrol otomatis dengan monitoring suhu multi titik</strong></li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="osamu-panel" id="osamu-industri" role="tabpanel">
-              <div class="img-placeholder osamu-img">
-                Placeholder foto mesin OSAMU Industri<br />
-                (gambar unit aktual dapat ditambahkan)
-              </div>
-              <div class="osamu-panel-body">
-                <h3>OSAMU Industri</h3>
-                <p>
-                  Cocok untuk menunjang pengelolaan limbah padat di area produksi, utilitas, maupun
-                  fasilitas penunjang di lingkungan industri.
-                </p>
-                <ul class="osamu-spec-list">
-                  <li><span>Kapasitas pembakaran</span><strong>100–300 kg/jam</strong></li>
-                  <li><span>Jenis limbah</span><strong>Limbah padat non-B3 terpilah &amp; kemasan terkontaminasi</strong></li>
-                  <li><span>Desain ruang bakar</span><strong>Refractory tahan temperatur tinggi dengan burner industri</strong></li>
-                  <li><span>Sistem gas buang</span><strong>Dilengkapi ducting &amp; stack sesuai layout pabrik</strong></li>
-                  <li><span>Integrasi sistem</span><strong>Dapat dikombinasikan dengan sistem pengolahan limbah existing</strong></li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="osamu-panel" id="osamu-komunal" role="tabpanel">
-              <div class="img-placeholder osamu-img">
-                Placeholder foto mesin OSAMU Komunal<br />
-                (gambar unit aktual dapat ditambahkan)
-              </div>
-              <div class="osamu-panel-body">
-                <h3>OSAMU Komunal</h3>
-                <p>
-                  Ditujukan untuk kawasan pemukiman, institusi pendidikan, atau fasilitas publik yang
-                  membutuhkan solusi pemusnahan sampah terpusat.
-                </p>
-                <ul class="osamu-spec-list">
-                  <li><span>Kapasitas pembakaran</span><strong>80–150 kg/jam</strong></li>
-                  <li><span>Jenis limbah</span><strong>Sampah domestik terpilah (organik &amp; anorganik tertentu)</strong></li>
-                  <li><span>Sistem feeding</span><strong>Pintu loading ergonomis dengan mekanisme penguncian aman</strong></li>
-                  <li><span>Fitur keselamatan</span><strong>Interlock operasional &amp; panduan prosedur standar</strong></li>
-                  <li><span>Penempatan</span><strong>Opsional rumah incinerator lengkap dengan cerobong</strong></li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="osamu-panel" id="osamu-mobile" role="tabpanel">
-              <div class="img-placeholder osamu-img">
-                Placeholder foto mesin OSAMU Mobile<br />
-                (gambar unit aktual dapat ditambahkan)
-              </div>
-              <div class="osamu-panel-body">
-                <h3>OSAMU Mobile</h3>
-                <p>
-                  Varian incinerator yang dapat ditempatkan pada trailer atau kendaraan khusus untuk
-                  melayani kebutuhan di lokasi-lokasi berbeda.
-                </p>
-                <ul class="osamu-spec-list">
-                  <li><span>Kapasitas pembakaran</span><strong>40–80 kg/jam</strong></li>
-                  <li><span>Konfigurasi</span><strong>Dipadukan dengan sistem penanganan abu &amp; bahan bakar onboard</strong></li>
-                  <li><span>Kebutuhan listrik</span><strong>Dapat disesuaikan dengan genset atau suplai setempat</strong></li>
-                  <li><span>Aplikasi</span><strong>Respon bencana, proyek sementara, atau area terpencil</strong></li>
-                  <li><span>Dokumentasi</span><strong>Dilengkapi panduan operasi &amp; checklist inspeksi berkala</strong></li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
+      <div class="ft-col">
+        <h4>Produk & Layanan</h4>
+        <ul>
+          <li><a href="produk.html">Jasa Engineering</a></li>
+          <li><a href="produk.html">Fabrikasi & Machining</a></li>
+          <li><a href="produk.html">Solusi Lingkungan</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Hubungi Kami</h4>
+        <ul>
+          <li><a href="kontak.html">Formulir Kontak</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <section>
-    <div class="page">
-      <div class="stag">Layanan Rekayasa</div>
-      <h2>Jasa Engineering & Konsultasi</h2>
-      <p class="slead">
-        Tim engineering CME membantu menerjemahkan kebutuhan operasional menjadi rancangan teknis
-        yang jelas, terukur, dan siap dieksekusi, termasuk pengembangan sistem incinerator OSAMU
-        yang sesuai kapasitas dan regulasi.
-      </p>
-      <div class="cards-3">
-        <article class="card">
-          <div class="card-meta">E-01</div>
-          <h3>Studi Kelayakan & Penjajakan Teknis</h3>
-          <p>
-            Analisis awal kebutuhan dan kondisi eksisting untuk menentukan solusi yang paling
-            relevan, termasuk kajian kapasitas, tata letak, dan estimasi investasi.
-          </p>
-        </article>
-        <article class="card">
-          <div class="card-meta">E-02</div>
-          <h3>Basic & Detail Engineering</h3>
-          <p>
-            Penyusunan P&ID, layout, perhitungan kapasitas, serta gambar detail produksi
-            untuk memastikan kelancaran tahap manufaktur dan konstruksi.
-          </p>
-        </article>
-        <article class="card">
-          <div class="card-meta">E-03</div>
-          <h3>Supervisi Instalasi & Commissioning</h3>
-          <p>
-            Pendampingan teknis selama pemasangan di lapangan serta uji coba operasional
-            hingga sistem siap diserahterimakan.
-          </p>
-        </article>
-      </div>
+    <div class="ft-bot">
+      <span>© 2026 PT. Cipta Mekanika Engineering.</span>
     </div>
-  </section>
+  </footer>
 
-  <section style="background:var(--blue-frost);">
-    <div class="page">
-      <div class="stag">Manufaktur</div>
-      <h2>Fabrikasi & Machining</h2>
-      <p class="slead">
-        CME melaksanakan proses fabrikasi dengan pengendalian mutu ketat untuk memastikan setiap
-        peralatan memenuhi spesifikasi desain dan standar yang ditetapkan, termasuk unit-unit
-        OSAMU Incinerator dari tahap cutting hingga finishing.
-      </p>
-      <div class="split">
-        <div>
-          <ul class="list-check">
-            <li><span>✓</span><div>Fabrikasi struktur baja, rangka, dan platform untuk fasilitas industri.</div></li>
-            <li><span>✓</span><div>Pembuatan vessel, tanki, ducting, dan peralatan proses lain sesuai gambar teknik.</div></li>
-            <li><span>✓</span><div>Machining komponen presisi untuk mendukung peralatan mekanik dan rotating equipment.</div></li>
-            <li><span>✓</span><div>Penerapan prosedur pengelasan dan inspeksi (visual, NDT) sesuai permintaan klien.</div></li>
-          </ul>
-        </div>
-        <div>
-          <div class="img-placeholder">
-            Placeholder untuk foto workshop / lini fabrikasi CME<br />
-            (bisa diganti dengan foto actual workshop di kemudian hari)
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="page">
-      <div class="stag">Solusi Lingkungan</div>
-      <h2>Sistem Pengelolaan & Pemrosesan Limbah</h2>
-      <p class="slead">
-        CME merancang sistem pengelolaan limbah yang disesuaikan dengan karakteristik limbah,
-        kapasitas, serta regulasi yang berlaku di lokasi operasi klien, di mana OSAMU Incinerator
-        menjadi salah satu contoh solusi pemusnahan limbah padat.
-      </p>
-      <table class="table-spec">
-        <thead>
-          <tr>
-            <th>Jenis Solusi</th>
-            <th>Contoh Aplikasi</th>
-            <th>Catatan</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Sistem pengolahan limbah padat</td>
-            <td>Industri manufaktur, fasilitas publik, institusi kesehatan</td>
-            <td>Dirancang berdasarkan komposisi limbah dan target reduksi volume</td>
-          </tr>
-          <tr>
-            <td>Sistem pengolahan limbah cair</td>
-            <td>Proses produksi, utilitas, area pencucian / cleaning</td>
-            <td>Dapat dikombinasikan dengan unit existing klien</td>
-          </tr>
-          <tr>
-            <td>Sistem pemantauan dan kontrol</td>
-            <td>Monitoring parameter proses & lingkungan</td>
-            <td>Integrasi dengan panel kontrol dan data logging</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="margin-top:1.3rem;font-size:.9rem;color:var(--muted);">
-        Detail teknis spesifik (kapasitas, jenis limbah, komponen utama) dapat diambil langsung dari
-        dokumen spesifikasi produk CME dan dimasukkan ke dalam tabel atau section terpisah sesuai
-        kebutuhan.
-      </p>
-    </div>
-  </section>
-
-  <section style="background:var(--blue-deep);color:#fff;">
-    <div class="page">
-      <div class="stag" style="color:var(--sky);"><span></span>Pendekatan Proyek</div>
-      <h2 style="color:#fff;">Dari Diskusi Awal hingga After-Sales</h2>
-      <div class="split" style="margin-top:2.2rem;">
-        <div>
-          <ol style="margin-left:1.1rem;font-size:.9rem;line-height:1.7;">
-            <li><strong>Diskusi kebutuhan & pengumpulan data</strong> – memahami proses, target, serta batasan yang ada.</li>
-            <li><strong>Usulan konsep & estimasi awal</strong> – CME menyusun alternatif solusi dan gambaran investasi.</li>
-            <li><strong>Detail engineering & fabrikasi</strong> – desain difinalkan, diikuti produksi dan pengujian di workshop.</li>
-            <li><strong>Instalasi & commissioning</strong> – pemasangan di lokasi, uji fungsi, dan pelatihan operator.</li>
-            <li><strong>After-sales & perawatan</strong> – dukungan teknis, inspeksi berkala, dan ketersediaan suku cadang.</li>
-          </ol>
-        </div>
-        <div>
-          <p class="slead" style="color:rgba(255,255,255,.8);max-width:none;">
-            Setiap proyek didokumentasikan melalui laporan teknis dan berita acara sehingga klien
-            memiliki rekam jejak yang jelas untuk kebutuhan audit internal maupun eksternal.
-          </p>
-          <div style="margin-top:1.6rem;">
-            <a href="kontak.html" class="btn btn-primary">Diskusikan kebutuhan proyek Anda</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="ft-top">
-    <div class="ft-brand">
-      <a href="index.html" class="logo">
-        <div class="logo-mark">
-          <img src="assets/img/breadcrumb.png" alt="Logo CME Engineering" />
-        </div>
-        <div class="logo-text">CME<span>Engineering</span></div>
-      </a>
-      <p>
-        CME menyediakan layanan rekayasa, fabrikasi, dan solusi lingkungan yang dapat disesuaikan
-        dengan karakteristik industri dan lokasi klien.
-      </p>
-    </div>
-    <div class="ft-col">
-      <h4>Perusahaan</h4>
-      <ul>
-        <li><a href="tentang.html">Profil CME</a></li>
-        <li><a href="portofolio.html">Portofolio</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h4>Produk & Layanan</h4>
-      <ul>
-        <li><a href="produk.html">Jasa Engineering</a></li>
-        <li><a href="produk.html">Fabrikasi & Machining</a></li>
-        <li><a href="produk.html">Solusi Lingkungan</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h4>Hubungi Kami</h4>
-      <ul>
-        <li><a href="kontak.html">Formulir Kontak</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="ft-bot">
-    <span>© 2026 PT. Cipta Mekanika Engineering.</span>
-  </div>
-</footer>
-
-<script>
-  const obs = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('vis');
-  }), { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
-  });
-
-  const osamuTabs = document.querySelectorAll('.osamu-tab');
-  const osamuPanels = document.querySelectorAll('.osamu-panel');
-
-  osamuTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetId = tab.getAttribute('data-target');
-
-      osamuTabs.forEach(t => t.classList.remove('is-active'));
-      osamuPanels.forEach(p => p.classList.remove('is-active'));
-
-      tab.classList.add('is-active');
-      const panel = document.getElementById(targetId);
-      if (panel) {
-        panel.classList.add('is-active');
-      }
+  <script>
+    const obs = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('vis');
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
     });
-  });
-</script>
+
+    const osamuTabs = document.querySelectorAll('.osamu-tab');
+    const osamuPanels = document.querySelectorAll('.osamu-panel');
+
+    osamuTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetId = tab.getAttribute('data-target');
+
+        osamuTabs.forEach(t => t.classList.remove('is-active'));
+        osamuPanels.forEach(p => p.classList.remove('is-active'));
+
+        tab.classList.add('is-active');
+        const panel = document.getElementById(targetId);
+        if (panel) {
+          panel.classList.add('is-active');
+        }
+      });
+    });
+  </script>
 
 </body>
-</html>
 
+</html>
