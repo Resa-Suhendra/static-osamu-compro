@@ -325,6 +325,103 @@
       </div>
     </section>
 
+    <!-- ═══ Anatomi Mesin OSAMU Incinerator ═══ -->
+    <section class="wid-section" id="anatomi-mesin">
+      <div class="wid-header">
+        <div class="stag" style="justify-content:center;">Anatomi Mesin</div>
+        <h2>Komponen OSAMU Incinerator</h2>
+        <p>Klik pada titik-titik komponen di bawah ini untuk mempelajari setiap bagian mesin incinerator OSAMU secara detail.</p>
+      </div>
+
+      <div class="wid-viewer">
+        <div class="wid-img-wrap" id="wid-image-container">
+          <img src="assets/gallery/wid/01_overview_incinerator.webp" alt="Overview OSAMU Incinerator — diagram komponen lengkap" />
+
+          <!-- Hotspot 1: Conveyor Input/Loading -->
+          <button class="wid-hotspot" style="left:30%;top:65%;" data-wid="0" aria-label="Conveyor Input Loading">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">1</span></span>
+            <span class="wid-hotspot-label">Conveyor Input</span>
+          </button>
+
+          <!-- Hotspot 2: Screw Conveyor Loading -->
+          <button class="wid-hotspot" style="left:37%;top:42%;" data-wid="1" aria-label="Screw Conveyor Loading">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">2</span></span>
+            <span class="wid-hotspot-label">Screw Conveyor Loading</span>
+          </button>
+
+          <!-- Hotspot 3: Primary Chamber -->
+          <button class="wid-hotspot" style="left:57%;top:56%;" data-wid="2" aria-label="Primary Chamber">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">3</span></span>
+            <span class="wid-hotspot-label">Primary Chamber</span>
+          </button>
+
+          <!-- Hotspot 4: Secondary Chamber -->
+          <button class="wid-hotspot" style="left:55%;top:41%;" data-wid="3" aria-label="Secondary Chamber">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">4</span></span>
+            <span class="wid-hotspot-label">Secondary Chamber</span>
+          </button>
+
+          <!-- Hotspot 5: Wet Scrubber -->
+          <button class="wid-hotspot" style="left:68%;top:52%;" data-wid="4" aria-label="Wet Scrubber">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">5</span></span>
+            <span class="wid-hotspot-label">Wet Scrubber</span>
+          </button>
+
+          <!-- Hotspot 6: Electrostatic Smoke -->
+          <button class="wid-hotspot" style="left:60%;top:30%;" data-wid="5" aria-label="Electrostatic Smoke">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">6</span></span>
+            <span class="wid-hotspot-label">Electrostatic Smoke</span>
+          </button>
+
+          <!-- Hotspot 7: ID Fan / Centrifugal Blower -->
+          <button class="wid-hotspot" style="left:45%;top:63%;" data-wid="6" aria-label="ID Fan Centrifugal Blower">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">7</span></span>
+            <span class="wid-hotspot-label">ID Fan Blower</span>
+          </button>
+
+          <!-- Hotspot 8: Screw Conveyor Flyash -->
+          <button class="wid-hotspot" style="left:60%;top:67%;" data-wid="7" aria-label="Screw Conveyor Flyash">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">8</span></span>
+            <span class="wid-hotspot-label">Screw Conveyor Flyash</span>
+          </button>
+
+          <!-- Hotspot 9: CEMS -->
+          <button class="wid-hotspot" style="left:42%;top:54%;" data-wid="8" aria-label="CEMS">
+            <span class="wid-hotspot-dot"><span class="wid-hotspot-num">9</span></span>
+            <span class="wid-hotspot-label">CEMS</span>
+          </button>
+        </div>
+
+        <!-- Legend -->
+        <div class="wid-legend" id="wid-legend"></div>
+      </div>
+
+      <!-- Modal -->
+      <div class="wid-modal-overlay" id="wid-overlay">
+        <div class="wid-modal" id="wid-modal">
+          <button class="wid-modal-close" id="wid-close" aria-label="Tutup">&times;</button>
+          <div class="wid-modal-img">
+            <img id="wid-modal-image" src="" alt="" />
+          </div>
+          <div class="wid-modal-body">
+            <div class="wid-modal-num" id="wid-modal-num"></div>
+            <div class="wid-modal-subtitle" id="wid-modal-subtitle"></div>
+            <h3 class="wid-modal-title" id="wid-modal-title"></h3>
+            <p class="wid-modal-desc" id="wid-modal-desc"></p>
+            <div class="wid-modal-func">
+              <div class="wid-modal-func-label">Fungsi Utama</div>
+              <p class="wid-modal-func-text" id="wid-modal-func"></p>
+            </div>
+            <div class="wid-modal-nav">
+              <button class="wid-modal-nav-btn" id="wid-prev">&#8592; Sebelumnya</button>
+              <span class="wid-modal-nav-counter" id="wid-counter"></span>
+              <button class="wid-modal-nav-btn" id="wid-next">Selanjutnya &#8594;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="page">
         <div class="stag">Layanan Rekayasa</div>
@@ -541,6 +638,164 @@
         }
       });
     });
+
+    /* ═══ WID — Interactive Component Explorer ═══ */
+    (function () {
+      const widData = [
+        {
+          num: 1,
+          title: 'Conveyor Input / Loading Waste',
+          subtitle: 'Sistem Pengumpan Limbah',
+          img: 'assets/gallery/wid/02_conveyor_input_loading.webp',
+          desc: 'Conveyor pengumpan pertama untuk memasukkan limbah ke ruang bakar (Chamber 1) secara otomasi dan continues melalui screw conveyor.',
+          func: 'Pengumpanan limbah secara otomatis dan kontinu ke dalam tahap pertama pembakaran, mengurangi kebutuhan intervensi manual dan memastikan aliran limbah yang stabil.'
+        },
+        {
+          num: 2,
+          title: 'Screw Conveyor Loading Waste',
+          subtitle: 'Transfer Limbah ke Ruang Bakar',
+          img: 'assets/gallery/wid/03_screw_conveyor_loading.webp',
+          desc: 'Screw Conveyor ini mentransfer limbah ke dalam ruang bakar (Chamber 1) dengan prinsip safety first.',
+          func: 'Mentransfer limbah secara aman dari conveyor input ke dalam primary chamber, dilengkapi sistem keamanan untuk mencegah backfire dan paparan panas berlebih ke operator.'
+        },
+        {
+          num: 3,
+          title: 'Ruang Bakar / Chamber 1 (Primary Chamber)',
+          subtitle: 'Pembakaran Utama',
+          img: 'assets/gallery/wid/04_primary_chamber.webp',
+          desc: 'Chamber 1 / Ruang bakar (Primary Chamber) dengan bahan lapisan pertama Castable Refractory dengan suhu ruang bakar \u00b1 850\u00b0 \u2013 1000\u00b0 derajat Celcius dan lapisan luar Carbon Steel.',
+          func: 'Tempat pembakaran utama limbah padat pada suhu tinggi (850\u00b0C \u2013 1000\u00b0C). Konstruksi Castable Refractory menjamin ketahanan termal, sedangkan Carbon Steel memberikan kekuatan struktural.'
+        },
+        {
+          num: 4,
+          title: 'Chamber 2 / Secondary Chamber',
+          subtitle: 'Pembakaran Sekunder',
+          img: 'assets/gallery/wid/05_secondary_chamber.webp',
+          desc: 'Memastikan pembakaran maksimal dan menurunkan emisi berbahaya agar bisa menghancurkan kontaminan organik yang lebih sulit dan mengurangi timbulan dioxin/furan.',
+          func: 'Pembakaran lanjutan untuk menghancurkan kontaminan organik yang sulit dan secara signifikan mengurangi timbulan senyawa berbahaya seperti dioxin dan furan sebelum gas buang masuk ke tahap pemurnian.'
+        },
+        {
+          num: 5,
+          title: 'Wet Scrubber',
+          subtitle: 'Pengendalian Polusi Udara',
+          img: 'assets/gallery/wid/06_wet_scrubber.webp',
+          desc: 'Perangkat pengendalian polusi udara yang berfungsi untuk menghilangkan partikel debu dan gas berbahaya dari aliran gas buang industri.',
+          func: 'Menghilangkan partikel debu dan gas berbahaya dari aliran gas buang menggunakan media air, memastikan emisi yang dikeluarkan sesuai standar lingkungan.'
+        },
+        {
+          num: 6,
+          title: 'Electrostatic Smoke',
+          subtitle: 'Filter Partikulat Ultra-Halus',
+          img: 'assets/gallery/wid/07_electrostatic_smoke.webp',
+          desc: 'Menghilangkan asap dan partikulat halus. Fungsi utamanya adalah menangkap partikel berukuran sangat kecil (hingga 0,01 mikron) yang biasanya lolos dari filter mekanis biasa.',
+          func: 'Menangkap partikel ultra-halus berukuran hingga 0,01 mikron menggunakan medan elektrostatis, memberikan lapisan filtrasi tambahan yang tidak dapat dicapai oleh filter mekanis konvensional.'
+        },
+        {
+          num: 7,
+          title: 'ID FAN Centrifugal Blower',
+          subtitle: 'Penarik Gas Buang',
+          img: 'assets/gallery/wid/08_id_fan_centrifugal_blower.webp',
+          desc: 'Berfungsi untuk menarik gas buang yang sudah ramah lingkungan untuk dibuang melalui Chimney/Cerobong.',
+          func: 'Menarik dan mendorong gas buang yang telah dimurnikan melalui cerobong/chimney ke atmosfer, memastikan aliran udara yang optimal sepanjang seluruh sistem.'
+        },
+        {
+          num: 8,
+          title: 'Screw Conveyor Flyash',
+          subtitle: 'Pembuangan Abu Otomatis',
+          img: 'assets/gallery/wid/09_screw_conveyor_flyash.webp',
+          desc: 'Berfungsi untuk mengeluarkan abu sisa pembakaran (flyash) dengan cara otomasi.',
+          func: 'Mengeluarkan abu sisa pembakaran secara otomatis dari ruang bakar, menjaga kebersihan chamber dan kelancaran operasi tanpa perlu shutdown untuk pembersihan manual.'
+        },
+        {
+          num: 9,
+          title: 'CEMS (Continuous Emission Monitoring System)',
+          subtitle: 'Pemantauan Emisi Real-Time',
+          img: 'assets/gallery/wid/10_cems.jpg',
+          desc: 'Sistem pemantauan emisi yang bekerja secara terus-menerus, otomatis, dan real-time untuk mengukur konsentrasi polutan (seperti SO\u2082, NOx, CO, CO\u2082, O\u2082, Partikulat, dan Laju Alir) serta parameter gas buang lainnya.',
+          func: 'Pemantauan emisi kontinu dan real-time untuk memantau SO\u2082, NOx, CO, CO\u2082, O\u2082, partikulat, dan laju alir gas buang \u2014 memastikan kepatuhan regulasi lingkungan secara transparan.'
+        }
+      ];
+
+      let currentIdx = 0;
+
+      // Build legend
+      const legendEl = document.getElementById('wid-legend');
+      widData.forEach((item, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'wid-legend-item';
+        btn.innerHTML = '<span class="wid-legend-dot"></span>' + item.num + '. ' + item.title.split('/')[0].split('(')[0].trim();
+        btn.addEventListener('click', () => openModal(i));
+        legendEl.appendChild(btn);
+      });
+
+      // Modal elements
+      const overlay = document.getElementById('wid-overlay');
+      const modalImg = document.getElementById('wid-modal-image');
+      const modalNum = document.getElementById('wid-modal-num');
+      const modalTitle = document.getElementById('wid-modal-title');
+      const modalSubtitle = document.getElementById('wid-modal-subtitle');
+      const modalDesc = document.getElementById('wid-modal-desc');
+      const modalFunc = document.getElementById('wid-modal-func');
+      const modalCounter = document.getElementById('wid-counter');
+      const btnClose = document.getElementById('wid-close');
+      const btnPrev = document.getElementById('wid-prev');
+      const btnNext = document.getElementById('wid-next');
+
+      function openModal(idx) {
+        currentIdx = idx;
+        renderModal();
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
+      function renderModal() {
+        const d = widData[currentIdx];
+        modalImg.src = d.img;
+        modalImg.alt = d.title;
+        modalNum.textContent = d.num;
+        modalTitle.textContent = d.title;
+        modalSubtitle.textContent = d.subtitle;
+        modalDesc.textContent = d.desc;
+        modalFunc.textContent = d.func;
+        modalCounter.textContent = (currentIdx + 1) + ' / ' + widData.length;
+      }
+
+      // Hotspot clicks
+      document.querySelectorAll('.wid-hotspot').forEach(hs => {
+        hs.addEventListener('click', () => {
+          openModal(parseInt(hs.dataset.wid, 10));
+        });
+      });
+
+      // Close
+      btnClose.addEventListener('click', closeModal);
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
+      });
+
+      // Prev / Next
+      btnPrev.addEventListener('click', () => {
+        currentIdx = (currentIdx - 1 + widData.length) % widData.length;
+        renderModal();
+      });
+      btnNext.addEventListener('click', () => {
+        currentIdx = (currentIdx + 1) % widData.length;
+        renderModal();
+      });
+
+      // Keyboard
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') { currentIdx = (currentIdx - 1 + widData.length) % widData.length; renderModal(); }
+        if (e.key === 'ArrowRight') { currentIdx = (currentIdx + 1) % widData.length; renderModal(); }
+      });
+    })();
   </script>
 
 </body>
