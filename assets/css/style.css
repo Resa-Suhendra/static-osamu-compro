@@ -1752,3 +1752,16 @@ img {
   .wid-legend { gap: .35rem; }
   .wid-legend-item { font-size: .65rem; padding: .3rem .6rem; }
 }
+
+/* ── Desktop hotspot position overrides ── */
+@media (min-width: 901px) {
+  .wid-hotspot[data-wid="0"] { left: 40% !important; top: 62% !important; }
+  .wid-hotspot[data-wid="1"] { left: 42% !important; top: 44% !important; }
+  .wid-hotspot[data-wid="2"] { left: 68% !important; top: 58% !important; }
+  .wid-hotspot[data-wid="3"] { left: 65% !important; top: 42% !important; }
+  .wid-hotspot[data-wid="4"] { left: 74% !important; top: 53% !important; }
+  .wid-hotspot[data-wid="5"] { left: 67% !important; top: 37% !important; }
+  .wid-hotspot[data-wid="6"] { left: 52% !important; top: 63% !important; }
+  .wid-hotspot[data-wid="7"] { left: 67% !important; top: 69% !important; }
+  .wid-hotspot[data-wid="8"] { left: 51% !important; top: 56% !important; }
+}
