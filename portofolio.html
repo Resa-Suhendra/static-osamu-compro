@@ -829,7 +829,7 @@
   <script>
     const obs = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) e.target.classList.add('vis');
-    }), { threshold: 0.12 });
+    }), { threshold: 0.02 });
     document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);

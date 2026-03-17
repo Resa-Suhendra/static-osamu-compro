@@ -1370,6 +1370,12 @@ img {
 @media (max-width: 768px) {
   .gallery-section .glow-orb { display: none; }
   .futuristic-gallery { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+  .gallery-item { backdrop-filter: none; }
+  .gallery-section.reveal { opacity: 1; transform: none; }
+}
+@media (max-width: 480px) {
+  .futuristic-gallery { grid-template-columns: 1fr; gap: 1.2rem; }
+  .gallery-section.reveal { opacity: 1; transform: none; }
 }
 
 /* ═══════════════════════════════════════════
